@@ -1,0 +1,77 @@
+# Customer Service Multi-Agent System Configuration
+
+# Agent roles and specializations
+agents:
+  intake:
+    name: "Intake Agent"
+    description: "Receives requests, extracts intent and priority"
+    timeout_seconds: 5
+    
+  router:
+    name: "Router Agent"
+    description: "Routes requests to appropriate specialist"
+    timeout_seconds: 3
+    
+  specialists:
+    billing:
+      name: "Billing Specialist"
+      description: "Handles billing, invoicing, subscription issues"
+      expertise: ["billing", "invoices", "payment", "subscription", "refund"]
+      quality_threshold: 0.85
+      
+    technical:
+      name: "Technical Specialist"
+      description: "Handles technical issues, troubleshooting"
+      expertise: ["error", "bug", "crash", "performance", "integration", "api"]
+      quality_threshold: 0.85
+      
+    sales:
+      name: "Sales Specialist"
+      description: "Handles product questions, upgrades, recommendations"
+      expertise: ["product", "feature", "pricing", "upgrade", "plan", "recommendation"]
+      quality_threshold: 0.80
+      
+  qa:
+    name: "QA Agent"
+    description: "Validates response quality and accuracy"
+    timeout_seconds: 3
+    quality_score_threshold: 0.75
+    max_validation_attempts: 2
+    
+  escalation:
+    name: "Escalation Agent"
+    description: "Handles escalated issues and complex cases"
+    timeout_seconds: 2
+
+# Service level agreements
+sla:
+  simple_issue_target_seconds: 5
+  moderate_issue_target_seconds: 15
+  complex_issue_target_seconds: 30
+  
+# Priority levels and escalation rules
+priority:
+  low:
+    description: "General inquiries, non-urgent"
+    escalation_threshold: 3
+    
+  medium:
+    description: "Problematic but not business-critical"
+    escalation_threshold: 2
+    
+  high:
+    description: "Business-critical, urgency signals present"
+    escalation_threshold: 1
+
+# Quality metrics thresholds
+quality:
+  min_response_relevance: 0.75
+  min_customer_satisfaction: 0.75
+  max_hallucination_tolerance: 0.05
+  
+# Cost estimation (for portfolio metrics)
+cost_model:
+  specialist_response_cost: 0.15  # $ per specialist response
+  qa_validation_cost: 0.05  # $ per validation
+  escalation_cost: 2.50  # $ per escalation (estimated human agent time)
+  human_support_cost_per_ticket: 10.0  # $ baseline human agent cost

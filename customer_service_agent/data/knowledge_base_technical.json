@@ -1,0 +1,40 @@
+{
+  "solutions": {
+    "technical_001": {
+      "id": "technical_001",
+      "keywords": ["crash", "app", "won't", "open", "launch"],
+      "question": "My app keeps crashing when I try to open it",
+      "answer": "Try these troubleshooting steps: 1) Force close the app and restart it. 2) Clear app cache (Settings > Apps > [App Name] > Storage > Clear Cache). 3) Ensure you're running the latest version from the app store. 4) If the issue persists, uninstall and reinstall the app. Contact support if crashing continues."
+    },
+    "technical_002": {
+      "id": "technical_002",
+      "keywords": ["error", "message", "getting", "code"],
+      "question": "I'm getting an error message, what does it mean?",
+      "answer": "Please provide the exact error code or message you're seeing. Common errors: Error 401 = authentication failed (try re-logging in), Error 500 = server issue (we're aware and fixing), Error 403 = permission denied (check your account access). Share the error details for specific help."
+    },
+    "technical_003": {
+      "id": "technical_003",
+      "keywords": ["slow", "performance", "lag", "speed", "running"],
+      "question": "The app is running very slowly, how can I improve performance?",
+      "answer": "To improve performance: 1) Close other running apps to free up memory. 2) Clear app cache (Settings > Apps > [App Name] > Storage > Clear Cache). 3) Check your internet connection. 4) Disable background app refresh if not needed. 5) Update to the latest app version. 6) Restart your device. If still slow, contact support."
+    },
+    "technical_004": {
+      "id": "technical_004",
+      "keywords": ["connection", "network", "internet", "offline", "can't", "connect"],
+      "question": "I can't connect to the service, it says offline",
+      "answer": "Check your internet connection first: 1) Verify WiFi/mobile data is enabled. 2) Try switching between WiFi and mobile data. 3) Restart your device. 4) Check if our service status page shows any outages. 5) Clear app cache and retry. If other apps work but ours doesn't, please contact support with your device info."
+    },
+    "technical_005": {
+      "id": "technical_005",
+      "keywords": ["api", "integration", "not", "working", "error"],
+      "question": "Our API integration isn't working",
+      "answer": "For API issues: 1) Verify your API key is correct and active in your account settings. 2) Check the API documentation for the correct endpoint format. 3) Ensure you're sending required parameters. 4) Check request/response logs for error details. 5) Review our status page for incidents. For unresolved issues, please provide API error code and request ID."
+    },
+    "technical_006": {
+      "id": "technical_006",
+      "keywords": ["sync", "data", "not", "update", "loading"],
+      "question": "My data isn't syncing or updating properly",
+      "answer": "Try these sync troubleshooting steps: 1) Force refresh by pulling down from the top. 2) Sign out completely and sign back in. 3) Clear app cache (Settings > Apps > [App Name] > Storage > Clear Cache). 4) Check that auto-sync is enabled in Settings. 5) Ensure you're on the latest app version. If data still doesn't sync, contact support with your account ID."
+    }
+  }
+}

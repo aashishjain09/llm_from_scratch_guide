@@ -1,0 +1,40 @@
+{
+  "solutions": {
+    "billing_001": {
+      "id": "billing_001",
+      "keywords": ["invoice", "where", "see", "access"],
+      "question": "Where can I see my invoices?",
+      "answer": "You can access all your invoices from your account dashboard. Go to Settings > Billing > Invoices. You'll see a complete history of all charges with PDF download options."
+    },
+    "billing_002": {
+      "id": "billing_002",
+      "keywords": ["cancel", "subscription", "how"],
+      "question": "How do I cancel my subscription?",
+      "answer": "To cancel your subscription, navigate to Settings > Subscription > Manage Subscription, then click 'Cancel Subscription'. Your service will continue until the end of your current billing period."
+    },
+    "billing_003": {
+      "id": "billing_003",
+      "keywords": ["refund", "charged", "wrong"],
+      "question": "I was charged incorrectly, can I get a refund?",
+      "answer": "We apologize for the billing error. Please contact our billing support with details of the incorrect charge, and we'll investigate immediately. Refunds for billing errors are typically processed within 3-5 business days."
+    },
+    "billing_004": {
+      "id": "billing_004",
+      "keywords": ["upgrade", "plan", "better", "more"],
+      "question": "How do I upgrade my plan?",
+      "answer": "You can upgrade your plan anytime from Settings > Subscription > Upgrade Plan. You'll see all available plans with feature comparisons. Upgrade charges are prorated based on your current billing cycle."
+    },
+    "billing_005": {
+      "id": "billing_005",
+      "keywords": ["payment", "method", "update", "credit", "card"],
+      "question": "How do I update my payment method?",
+      "answer": "Go to Settings > Billing > Payment Methods to update your payment information. You can add, update, or remove payment methods at any time. Changes take effect immediately."
+    },
+    "billing_006": {
+      "id": "billing_006",
+      "keywords": ["discount", "coupon", "code", "promotion"],
+      "question": "Can I apply a discount or coupon code?",
+      "answer": "Yes! Go to Settings > Billing > Billing Details and enter your coupon code in 'Apply Coupon'. The discount will be applied to your next billing cycle within 24 hours."
+    }
+  }
+}

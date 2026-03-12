@@ -1,0 +1,40 @@
+{
+  "solutions": {
+    "sales_001": {
+      "id": "sales_001",
+      "keywords": ["what", "features", "included", "plan", "difference"],
+      "question": "What features are included in each plan?",
+      "answer": "Starter Plan ($29/mo): Core features, up to 10,000 API calls/month, basic support. Professional Plan ($99/mo): All Starter features + advanced analytics, 100,000 API calls/month, priority support. Enterprise: Custom everything - let's talk about your specific needs."
+    },
+    "sales_002": {
+      "id": "sales_002",
+      "keywords": ["price", "cost", "how", "much", "pricing"],
+      "question": "How much does the service cost?",
+      "answer": "We offer flexible pricing: Starter Plan: $29/month (billed annually: $290/year, save $58). Professional: $99/month ($990/year, save $198). Team plans and custom enterprise pricing available. All plans include 14-day free trial with full features."
+    },
+    "sales_003": {
+      "id": "sales_003",
+      "keywords": ["trial", "free", "try"],
+      "question": "Can I try the service before buying?",
+      "answer": "Absolutely! We offer a 14-day free trial with full access to all Professional Plan features. No credit card required. Sign up at our website and explore everything without any charges. After trial ends, your account pauses until you subscribe."
+    },
+    "sales_004": {
+      "id": "sales_004",
+      "keywords": ["upgrade", "change", "switch", "plan"],
+      "question": "Can I upgrade my plan anytime?",
+      "answer": "Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any charges based on your current billing period. Downgrading is also available - you'll keep your existing data, but some advanced features won't be available."
+    },
+    "sales_005": {
+      "id": "sales_005",
+      "keywords": ["enterprise", "large", "team", "organization", "custom"],
+      "question": "Do you have enterprise plans for large organizations?",
+      "answer": "Yes, we offer custom Enterprise plans tailored to your needs. Enterprise customers get dedicated support, custom integrations, advanced security, and volume discounts. Contact our sales team at sales@company.com for a customized quote and solution design."
+    },
+    "sales_006": {
+      "id": "sales_006",
+      "keywords": ["student", "education", "academic", "non-profit", "discount"],
+      "question": "Do you offer discounts for students or non-profits?",
+      "answer": "Yes! We offer 50% off all annual plans for verified students and educators. Non-profits qualify for significant discounts and custom arrangements. Contact us at support@company.com with proof of eligibility to claim your discount."
+    }
+  }
+}

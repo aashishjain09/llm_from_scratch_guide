@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Multi-Agent System - Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .metric-subtext {
+            font-size: 0.85em;
+            color: #999;
+        }
+        
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .chart-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .savings-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+        }
+        
+        .savings-title {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .savings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .savings-item {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+        }
+        
+        .savings-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .savings-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .success-highlight {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .warning-highlight {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Customer Service Multi-Agent System</h1>
+            <p>Enterprise-grade AI-powered customer support automation</p>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Requests Processed</div>
+                <div class="metric-value" id="total-requests">20</div>
+                <div class="metric-subtext">Sample demo batch</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Successful Handling</div>
+                <div class="metric-value success-highlight" id="success-rate">85%</div>
+                <div class="metric-subtext">Without escalation</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Avg Response Quality</div>
+                <div class="metric-value" id="quality-score">0.82</div>
+                <div class="metric-subtext">Out of 1.0</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Escalation Rate</div>
+                <div class="metric-value warning-highlight" id="escalation-rate">15%</div>
+                <div class="metric-subtext">Routed to humans</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Avg Response Time</div>
+                <div class="metric-value" id="response-time">45ms</div>
+                <div class="metric-subtext">Lightning fast</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Cost per Ticket (AI)</div>
+                <div class="metric-value success-highlight" id="cost-per-ticket">$0.20</div>
+                <div class="metric-subtext">vs $10 human</div>
+            </div>
+        </div>
+        
+        <div class="savings-section">
+            <div class="savings-title">💰 Cost Savings Analysis</div>
+            <div class="savings-grid">
+                <div class="savings-item">
+                    <div class="savings-label">AI Cost</div>
+                    <div class="savings-value" id="ai-cost">$4.00</div>
+                </div>
+                <div class="savings-item">
+                    <div class="savings-label">Human Support Cost</div>
+                    <div class="savings-value">$200.00</div>
+                </div>
+                <div class="savings-item">
+                    <div class="savings-label">Total Savings</div>
+                    <div class="savings-value success-highlight" id="total-savings">$196.00</div>
+                </div>
+                <div class="savings-item">
+                    <div class="savings-label">Savings %</div>
+                    <div class="savings-value success-highlight" id="savings-pct">98.0%</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="charts-grid">
+            <div class="chart-container">
+                <div class="chart-title">Request Distribution by Intent</div>
+                <canvas id="intentChart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-title">Request Outcomes</div>
+                <canvas id="outcomeChart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-title">Confidence Distribution</div>
+                <canvas id="confidenceChart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-title">Processing Time per Request</div>
+                <canvas id="timeChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Multi-Agent System Showcase | Designed for Enterprise Deployment</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">For detailed metrics, review demo_output.json</p>
+        </div>
+    </div>
+    
+    <script>
+        // Chart 1: Intent Distribution
+        const intentCtx = document.getElementById('intentChart').getContext('2d');
+        new Chart(intentCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Billing', 'Technical', 'Sales', 'Other'],
+                datasets: [{
+                    data: [35, 40, 20, 5],
+                    backgroundColor: [
+                        '#667eea',
+                        '#764ba2',
+                        '#f093fb',
+                        '#4facfe'
+                    ],
+                    borderColor: 'white',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+        
+        // Chart 2: Outcome Distribution
+        const outcomeCtx = document.getElementById('outcomeChart').getContext('2d');
+        new Chart(outcomeCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Handled Successfully', 'Escalated'],
+                datasets: [{
+                    data: [85, 15],
+                    backgroundColor: [
+                        '#27ae60',
+                        '#e67e22'
+                    ],
+                    borderColor: 'white',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+        
+        // Chart 3: Confidence Distribution
+        const confidenceCtx = document.getElementById('confidenceChart').getContext('2d');
+        new Chart(confidenceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['0.5-0.6', '0.6-0.7', '0.7-0.8', '0.8-0.9', '0.9-1.0'],
+                datasets: [{
+                    label: 'Number of Requests',
+                    data: [1, 2, 5, 7, 5],
+                    backgroundColor: '#667eea',
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Chart 4: Processing Time
+        const timeCtx = document.getElementById('timeChart').getContext('2d');
+        new Chart(timeCtx, {
+            type: 'line',
+            data: {
+                labels: Array.from({length: 20}, (_, i) => `Req ${i+1}`),
+                datasets: [{
+                    label: 'Response Time (ms)',
+                    data: [42, 38, 51, 45, 48, 40, 55, 42, 49, 44, 47, 43, 50, 42, 46, 41, 53, 44, 49, 45],
+                    borderColor: '#667eea',
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#667eea'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + 'ms';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "req_001",
+    "text": "Hi, I need to upgrade my plan to access more API calls. Which plan would be better for me if I need 50,000 calls per month?"
+  },
+  {
+    "id": "req_002",
+    "text": "My app keeps crashing every time I try to open it. I've tried restarting my phone but it's still not working. What should I do?"
+  },
+  {
+    "id": "req_003",
+    "text": "I was charged twice for my subscription this month. Can you investigate this and process a refund?"
+  },
+  {
+    "id": "req_004",
+    "text": "I'm getting an error code 401 when trying to access the API. I'm using the correct API key, so I'm not sure what's wrong."
+  },
+  {
+    "id": "req_005",
+    "text": "Can I downgrade from Professional to Starter plan? Will I lose any of my data if I do?"
+  },
+  {
+    "id": "req_006",
+    "text": "The service is running extremely slowly on my device. It's almost unusable. Is there a known issue?"
+  },
+  {
+    "id": "req_007",
+    "text": "I want to cancel my subscription. How do I do that?"
+  },
+  {
+    "id": "req_008",
+    "text": "What's the difference between the Starter and Professional plans? I'm trying to decide which one to choose."
+  },
+  {
+    "id": "req_009",
+    "text": "I lost internet connection and now the app says it's offline. Even though I reconnected, it won't sync my data."
+  },
+  {
+    "id": "req_010",
+    "text": "Do you offer student discounts? I'm a university student and would love to try your service."
+  },
+  {
+    "id": "req_011",
+    "text": "How do I access my previous invoices? I need them for accounting purposes."
+  },
+  {
+    "id": "req_012",
+    "text": "The app crashes on startup. I've cleared the cache and restarted my phone. Nothing helps. This is critical because I need to work today."
+  },
+  {
+    "id": "req_013",
+    "text": "I'd like to integrate your API into my application. What are the key features I should know about?"
+  },
+  {
+    "id": "req_014",
+    "text": "Can I apply a coupon code to my billing? I have a promotion code from a partner."
+  },
+  {
+    "id": "req_015",
+    "text": "I'm a non-profit organization. Do you have any special pricing for us?"
+  },
+  {
+    "id": "req_016",
+    "text": "How long is your free trial? And do I need to enter my credit card to start?"
+  },
+  {
+    "id": "req_017",
+    "text": "My API integration suddenly stopped working yesterday. I don't see any errors in my logs. What could be wrong?"
+  },
+  {
+    "id": "req_018",
+    "text": "I need to change my payment method. Where do I do that?"
+  },
+  {
+    "id": "req_019",
+    "text": "Your service is down and I can't make the payments my customers are expecting to make. This is urgent!"
+  },
+  {
+    "id": "req_020",
+    "text": "What are the API rate limits for the Starter plan?"
+  }
+]

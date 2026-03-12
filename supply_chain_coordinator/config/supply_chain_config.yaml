@@ -1,0 +1,133 @@
+# Supply Chain Multi-Agent Coordinator Configuration
+
+simulation:
+  horizon_days: 90
+  num_SKUs: 5
+  num_warehouses: 3
+  
+agents:
+  demand:
+    name: "Demand Forecasting Agent"
+    forecast_accuracy: 0.85  # Baseline accuracy of demand forecast
+    reorder_point_multiplier: 1.5  # Safety stock multiplier
+    
+  inventory:
+    name: "Inventory Management Agent"
+    tracking_accuracy: 0.98
+    
+  logistics:
+    name: "Logistics Planning Agent"
+    optimization_metric: "cost"  # Options: cost, time, hybrid
+    consolidation_threshold: 0.7  # Consolidate shipments if fill rate > 70%
+    
+  supplier:
+    name: "Supplier Coordination Agent"
+    negotiation_discount_range: [0.0, 0.15]
+    
+  exception:
+    name: "Exception Handler Agent"
+    
+  orchestrator:
+    name: "Orchestrator Agent"
+    conflict_resolution: "cost_priority"  # Resolve conflicts favoring cost savings
+
+# Cost structure
+costs:
+  procurement_per_unit: 50.0
+  inventory_holding_cost_per_unit_per_day: 0.50  # Daily holding cost
+  shipping_cost_per_km: 0.50
+  warehouse_capacity_penalty: 100.0  # Penalty per unit exceeding capacity
+  expedited_shipping_premium: 1.5  # Multiplier on normal shipping
+  stockout_penalty: 25.0  # Per unit of unmet demand
+  
+# Warehouse configuration
+warehouses:
+  warehouse_1:
+    name: "Regional Hub - East"
+    initial_stock: { SKU_A: 500, SKU_B: 300, SKU_C: 400, SKU_D: 250, SKU_E: 350 }
+    capacity: 2000
+    location: [40.7128, -74.0060]  # New York
+    
+  warehouse_2:
+    name: "Regional Hub - Central"
+    initial_stock: { SKU_A: 400, SKU_B: 350, SKU_C: 300, SKU_D: 400, SKU_E: 300 }
+    capacity: 2000
+    location: [41.8781, -87.6298]  # Chicago
+    
+  warehouse_3:
+    name: "Regional Hub - West"
+    initial_stock: { SKU_A: 350, SKU_B: 400, SKU_C: 350, SKU_D: 300, SKU_E: 400 }
+    capacity: 2000
+    location: [34.0522, -118.2437]  # Los Angeles
+
+# Supplier configuration
+suppliers:
+  supplier_1:
+    name: "Supplier A"
+    lead_time_days: 5
+    capacity_units_per_day: 100
+    cost_per_unit: 40.0
+    
+  supplier_2:
+    name: "Supplier B"
+    lead_time_days: 3
+    capacity_units_per_day: 80
+    cost_per_unit: 42.0
+    
+  supplier_3:
+    name: "Supplier C"
+    lead_time_days: 7
+    capacity_units_per_day: 120
+    cost_per_unit: 38.0
+
+# Demand patterns for scenarios
+demand_scenarios:
+  normal:
+    description: "Normal seasonal demand"
+    base_daily_demand: { SKU_A: 50, SKU_B: 40, SKU_C: 45, SKU_D: 35, SKU_E: 55 }
+    seasonal_factor: 1.0
+    volatility: 0.1
+    
+  spike:
+    description: "Unexpected 40% demand spike for 2 weeks"
+    base_daily_demand: { SKU_A: 50, SKU_B: 40, SKU_C: 45, SKU_D: 35, SKU_E: 55 }
+    seasonal_factor: 1.4
+    spike_days: { start: 20, duration: 14 }
+    volatility: 0.15
+    
+  disruption:
+    description: "Supplier delayed shipment - 2 week delay on 30% of supply"
+    base_daily_demand: { SKU_A: 50, SKU_B: 40, SKU_C: 45, SKU_D: 35, SKU_E: 55 }
+    seasonal_factor: 1.0
+    supplier_failure: { supplier: "supplier_1", start_day: 10, duration: 14, impact: 0.3 }
+    volatility: 0.1
+    
+  capacity:
+    description: "Warehouse capacity constraints"
+    base_daily_demand: { SKU_A: 50, SKU_B: 40, SKU_C: 45, SKU_D: 35, SKU_E: 55 }
+    seasonal_factor: 1.0
+    reduced_warehouse_capacity: { warehouse_2: 0.6 }
+    volatility: 0.1
+    
+  combined:
+    description: "Multiple disruptions combined"
+    base_daily_demand: { SKU_A: 50, SKU_B: 40, SKU_C: 45, SKU_D: 35, SKU_E: 55 }
+    seasonal_factor: 1.3
+    spike_days: { start: 15, duration: 10 }
+    supplier_failure: { supplier: "supplier_2", start_day: 25, duration: 7, impact: 0.4 }
+    reduced_warehouse_capacity: { warehouse_1: 0.7 }
+    volatility: 0.15
+
+# Metrics and thresholds
+thresholds:
+  min_fulfillment_rate: 0.95
+  max_inventory_turns: 12.0
+  max_holding_cost_pct: 0.15
+  min_supplier_utilization: 0.4
+  
+# Baseline policy (for comparison)
+baseline_policy:
+  strategy: "reorder_point"  # Simple reorder point strategy
+  safety_stock_multiplier: 1.0
+  expedited_shipping_threshold: 0.2  # Use expedited if stock < 20%
+  description: "Traditional reorder point baseline"
